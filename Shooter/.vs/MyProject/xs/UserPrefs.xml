@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{306B9622-6474-0D19-83D7-B08F35872B12}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MouseLook.cs">
+    <Files>
+      <File FileName="Assets/Scripts/FPSInput.cs" Line="34" Column="21" />
+      <File FileName="Assets/Scripts/MouseLook.cs" Line="3" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MyProject" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="MouseLook.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b98e2110-8b8e-4bd0-8d93-6cd979247dc5" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
