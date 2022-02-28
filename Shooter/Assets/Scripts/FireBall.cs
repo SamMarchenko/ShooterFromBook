@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-
     public float speed = 20.0f;
-
     public int damage = 1;
-
-    // Update is called once per frame
+    
     void Update()
     {
         transform.Translate(0,0, speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)  // эта функция вызывается, когда с триггером сталкивается другой объект
+    // Эта функция вызывается, когда с триггером сталкивается другой объект.
+    private void OnTriggerEnter(Collider other)
     {
-        PlayerCharacter player = other.GetComponent<PlayerCharacter>();
-        if (player !=null) //Проверяем, является ли другой обхект объектом PlayerCharacter
+        var player = other.GetComponent<PlayerCharacter>();
+        // Проверяем, является ли другой обхект объектом PlayerCharacter.
+        if (player !=null) 
         {
             Debug.Log("Player hit");
             player.Hurt(1);

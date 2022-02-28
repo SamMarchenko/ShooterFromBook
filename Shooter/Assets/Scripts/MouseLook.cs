@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MouseLook : MonoBehaviour
 {
@@ -10,57 +11,53 @@ public class MouseLook : MonoBehaviour
         MouseX = 1,
         MouseY = 2
     }
-
     public Rotationaxes axes = Rotationaxes.MouseXandY;
-
-    public float sensivityHor = 9f;
-
-    public float sensivityVert = 5f;
-    public float minVert = -45f;
-    public float maxVert = 45f;
-
-    private float _rotationX = 0; // угол поворота по вертикали
-
+    public float SensivityHor = 9f;
+    public float SensivityVert = 5f;
+    public float MinVert = -45f;
+    public float MaxVert = 45f;
+    
+    // Угол поворота по вертикали.
+    private float _rotationX = 0;
     void Start()
     {
-        /*
-         * СПРОСИТЬ
-         */
-        Rigidbody body = GetComponent<Rigidbody>();
-        if (body!= null) //Проверяем, существует ли этот компонент
+        var body = GetComponent<Rigidbody>();
+        // Проверяем, существует ли этот компонент.
+        if (body!= null)
         {
             body.freezeRotation = true;
         }
     }
-
     void Update()
     {
-        if (axes == Rotationaxes.MouseX) // Вращение по горизонтали
+        // Вращение по горизонтали.
+        if (axes == Rotationaxes.MouseX)
         {
-            transform.Rotate(0, Input.GetAxis("Mouse X") * sensivityHor, 0);
-            //float delta = Input.GetAxis("Mouse X") * sensivityHor; // приращение угла поворота через  delta
-            //float _rotationY = transform.localEulerAngles.y + delta;
-            //float _rotationX = transform.localEulerAngles.x;
-            //transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0);
+            transform.Rotate(0, Input.GetAxis("Mouse X") * SensivityHor, 0);
         }
 
-
-        else if (axes == Rotationaxes.MouseY) // Вращение по вертикали
+        // Вращение по вертикали.
+        else if (axes == Rotationaxes.MouseY)
         {
-            _rotationX -= Input.GetAxis("Mouse Y") * sensivityVert; 
-
-            _rotationX = Mathf.Clamp(_rotationX, minVert, maxVert); // фиксируем угол поворота по вертикали, согласно диапазона
-
-            float _rotationY = transform.localEulerAngles.y; // сохраняем одинаковый угол поворота вокруг оси Y (вращения по Х не будет)
-            transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0); // создаем новый вектор из сохраненных значений поворота
+            _rotationX -= Input.GetAxis("Mouse Y") * SensivityVert;
+            // Фиксируем угол поворота по вертикали, согласно диапазона.
+            _rotationX = Mathf.Clamp(_rotationX, MinVert, MaxVert);
+            
+            // Сохраняем одинаковый угол поворота вокруг оси Y (вращения по Х не будет).
+            float _rotationY = transform.localEulerAngles.y;
+            // Создаем новый вектор из сохраненных значений поворота.
+            transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0);
         }
-        else // Комбинированное вращение
+        // Комбинированное вращение.
+        else
         {
-            _rotationX -= Input.GetAxis("Mouse Y") * sensivityVert;
-            _rotationX = Mathf.Clamp(_rotationX, minVert, maxVert);
+            _rotationX -= Input.GetAxis("Mouse Y") * SensivityVert;
+            _rotationX = Mathf.Clamp(_rotationX, MinVert, MaxVert);
 
-            float delta = Input.GetAxis("Mouse X") * sensivityHor; // приращение угла поворота через  delta
-            float _rotationY = transform.localEulerAngles.y + delta; // delta - величина изменения угла поворота
+            // Приращение угла поворота через  delta.
+            float delta = Input.GetAxis("Mouse X") * SensivityHor;
+            // delta - величина изменения угла поворота.
+            float _rotationY = transform.localEulerAngles.y + delta;
             transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0);
         }
     }
