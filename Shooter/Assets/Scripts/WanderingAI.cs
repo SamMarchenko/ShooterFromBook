@@ -4,61 +4,64 @@ using UnityEngine;
 
 public class WanderingAI : MonoBehaviour
 {
-
-    public float speed = 3.0f;         //значения для скорость движения и
-    public float obstacleRange = 5.0f; //расстояния, с которого начинается реакция на препятствия
-    private bool _alive;   // логическая переменная для слежения состояния персонажа
-
-    [SerializeField] private GameObject fireballPrefab; //  Эти два поля добавляются перед любыми методами, как и в сценарии SceneController
-    private GameObject _fireball;                       //
+    // Значения для скорость движения и расстояния, с которого начинается реакция на препятствия.
+    public float Speed = 3.0f;         
+    public float ObstacleRange = 5.0f;
     
-
+    
+    // Эти два поля добавляются перед любыми методами, как и в сценарии SceneController.
+    [SerializeField] private GameObject fireballPrefab; 
+    private GameObject _fireball;
+    // Логическая переменная для слежения состояния персонажа.
+    private bool _alive;  
+    
     private void Start()
     {
         _alive = true;
     }
-    // Update is called once per frame
     void Update()
     {
         if (_alive)
         {
-            transform.Translate(0, 0, speed * Time.deltaTime); // непрерывно движемся вперед в каждои кадре, несмотря на повороты
-
-            Ray ray = new Ray(transform.position, transform.forward); // луч находится в том же положении и нацеливается в том же направлении, что и персонаж
+            // Непрерывно движемся вперед в каждои кадре, несмотря на повороты.
+            transform.Translate(0, 0, Speed * Time.deltaTime); 
+            // Луч находится в том же положении и нацеливается в том же направлении, что и персонаж.
+            var ray = new Ray(transform.position, transform.forward); 
             RaycastHit hit;
-
-            if (Physics.SphereCast(ray, 1f, out hit)) //  бросаем луч с описанной вокруг него окружностью
+            
+            // Бросаем луч с описанной вокруг него окружностью.
+            if (Physics.SphereCast(ray, 1f, out hit)) 
             {
-                GameObject hitObject = hit.transform.gameObject; //СПРОСИТЬ
-                
-                
-                if (hitObject.GetComponent<PlayerCharacter>()) // Игрок распознается тем же способом, что и мишень в сценарии RayShooter
+                GameObject hitObject = hit.transform.gameObject;
+                // Игрок распознается тем же способом, что и мишень в сценарии RayShooter.
+                if (hitObject.GetComponent<PlayerCharacter>()) 
                 {
-                    if (_fireball == null) // Та же самая логика с пустым игровым объектом, что и в сценарии SceneController
+                    // Та же самая логика с пустым игровым объектом, что и в сценарии SceneController.
+                    if (_fireball == null) 
                     {
-                        _fireball = Instantiate(fireballPrefab) as GameObject; // метод Instatiate работает так же, как и в сценарии SceneController
-                        _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f); // Помещаем огненный шар перед врагом и нацелим в направлении его движения
-                        //СПРОСИТЬ
+                        // Метод Instatiate работает так же, как и в сценарии SceneController.
+                        _fireball = Instantiate(fireballPrefab) as GameObject;
+                        // Помещаем огненный шар перед врагом и нацелим в направлении его движения.
+                        _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f); 
                         _fireball.transform.rotation = transform.rotation;
                     }
                 }
-                else if (hit.distance < obstacleRange)
+                else if (hit.distance < ObstacleRange)
                 {
                     float angle = Random.Range(-110, 110);
                     transform.Rotate(0, angle, 0);
                 }
-
-
-                if (hit.distance < obstacleRange)
+                if (hit.distance < ObstacleRange)
                 {
                     float angle = Random.Range(-110, 110);
-                    transform.Rotate(0, angle, 0); // поворот с наполовину случайным выбором направления
+                    // Поворот с наполовину случайным выбором направления.
+                    transform.Rotate(0, angle, 0); 
                 }
             }
         }
-        
     }
-    public void SetAlive (bool alive) // Открытый метод, позволяющий внешнему коду воздействовать на "живое" состояние
+    // Открытый метод, позволяющий внешнему коду воздействовать на "живое" состояние.
+    public void SetAlive (bool alive) 
     {
         _alive = alive;
     }

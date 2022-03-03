@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    public float speed = 20.0f;
-    public int damage = 1;
+    public float Speed = 20.0f;
+    public int Damage = 1;
     
     void Update()
     {
-        transform.Translate(0,0, speed * Time.deltaTime);
+        transform.Translate(0,0, Speed * Time.deltaTime);
     }
 
     // Эта функция вызывается, когда с триггером сталкивается другой объект.

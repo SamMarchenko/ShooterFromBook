@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
+    // Сериализованная переменная для связи с объектом - шаблоном.
+    [SerializeField] private GameObject _enemyPrefab;  
+    // Закрытая переменная для слежения за экземпляром врага в сцене.
+    private GameObject _enemy;
     
-    [SerializeField] private GameObject enemyPrefab;  // сериализованная переменная для связи с объектом - шаблоном
-
-    private GameObject _enemy; // закрытая переменная для слежения за экземпляром врага в сцене
-
-
     void Update()
     {
         if (_enemy == null)
         {
-            _enemy = Instantiate(enemyPrefab) as GameObject; // Метод, копирующий объект - шаблон
+            // Метод, копирующий объект - шаблон.
+            _enemy = Instantiate(_enemyPrefab) as GameObject;
             float SpawnX = Random.Range(-23,23);
             float SpawnZ = Random.Range(-30, 15);
             _enemy.transform.position = new Vector3(SpawnX, 4, SpawnZ);
