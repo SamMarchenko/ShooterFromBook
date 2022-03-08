@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class WanderingAI : MonoBehaviour
 {
-    // Значения для скорость движения и расстояния, с которого начинается реакция на препятствия.
-    public float Speed = 3.0f;         
-    public float ObstacleRange = 5.0f;
-    
-    
+    [SerializeField] private Enemy EnemyData;
     // Эти два поля добавляются перед любыми методами, как и в сценарии SceneController.
     [SerializeField] private GameObject fireballPrefab; 
     private GameObject _fireball;
     // Логическая переменная для слежения состояния персонажа.
-    private bool _alive;  
+   // private bool _alive;  
     
     private void Start()
     {
-        _alive = true;
+        //EnemyData.Alive = true;
     }
     void Update()
     {
-        if (_alive)
+        if (EnemyData.Alive)
         {
             // Непрерывно движемся вперед в каждои кадре, несмотря на повороты.
-            transform.Translate(0, 0, Speed * Time.deltaTime); 
+            transform.Translate(0, 0, EnemyData.EnemySpeed * Time.deltaTime); 
             // Луч находится в том же положении и нацеливается в том же направлении, что и персонаж.
             var ray = new Ray(transform.position, transform.forward); 
             RaycastHit hit;
@@ -46,12 +42,12 @@ public class WanderingAI : MonoBehaviour
                         _fireball.transform.rotation = transform.rotation;
                     }
                 }
-                else if (hit.distance < ObstacleRange)
+                else if (hit.distance < EnemyData.VewingRange)
                 {
                     float angle = Random.Range(-110, 110);
                     transform.Rotate(0, angle, 0);
                 }
-                if (hit.distance < ObstacleRange)
+                if (hit.distance < EnemyData.VewingRange)
                 {
                     float angle = Random.Range(-110, 110);
                     // Поворот с наполовину случайным выбором направления.
@@ -61,10 +57,12 @@ public class WanderingAI : MonoBehaviour
         }
     }
     // Открытый метод, позволяющий внешнему коду воздействовать на "живое" состояние.
+   /*
     public void SetAlive (bool alive) 
     {
         _alive = alive;
     }
+    */
     
 }
 

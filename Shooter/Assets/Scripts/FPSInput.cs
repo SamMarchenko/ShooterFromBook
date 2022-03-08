@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(CharacterController))] //CПРОСИТЬ
-[AddComponentMenu("Control Script/FPS Input")]  //СПРОСИТЬ
+[RequireComponent(typeof(CharacterController))]
+[AddComponentMenu("Control Script/FPS Input")]
 
 public class FPSInput : MonoBehaviour
 {
-    public float Speed = 3f;
-    public float Gravity = -9.8f;
-    
+    [SerializeField] private Player PlayerData;
     private float _deltaX;
     private float _deltaZ;
     private CharacterController _characterController;
@@ -23,19 +21,20 @@ public class FPSInput : MonoBehaviour
     
     void Update()
     {
-        _deltaX = Input.GetAxis("Horizontal") * Speed;
-        _deltaZ = Input.GetAxis("Vertical") * Speed;
+        _deltaX = Input.GetAxis("Horizontal") * PlayerData.PlayerSpeed;
+        _deltaZ = Input.GetAxis("Vertical") * PlayerData.PlayerSpeed;
         transform.Translate(_deltaX * Time.deltaTime, 0,_deltaZ * Time.deltaTime );
         
-        Vector3 movement = new Vector3(_deltaX, 0 , _deltaZ);
+        var movement = new Vector3(_deltaX, 0 , _deltaZ);
         // Ограничение движения по диагонали той же скоростью, что и движение параллельно осям.
-        movement = Vector3.ClampMagnitude(movement, Speed); 
+        movement = Vector3.ClampMagnitude(movement, PlayerData.PlayerSpeed); 
         // Используем значение переменной gravity вместо нуля.
-        movement.y = Gravity;
+        movement.y = PlayerData.Gravity;
         movement *= Time.deltaTime;
         // Преобразуем вектор движения от локальных к глобальным координатам.
         movement = transform.TransformDirection(movement);
         // Заставим этот вектор перемещать компонент CharacterControler.
         _characterController.Move(movement);
     }
+    
 }

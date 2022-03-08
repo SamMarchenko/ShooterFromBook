@@ -878,10 +878,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 2
-  sensivityHor: 9
-  sensivityVert: 5
-  minVert: -45
-  maxVert: 45
+  SensivityHor: 9
+  SensivityVert: 5
+  MinVert: -45
+  MaxVert: 45
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d34b23c82a94bac96d2609867afbe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8883987682551564112, guid: 321400942c56448a0a8bb05783b511d4, type: 3}
+  _enemyPrefab: {fileID: 8883987682551564112, guid: 321400942c56448a0a8bb05783b511d4, type: 3}
 --- !u!4 &1251569103
 Transform:
   m_ObjectHideFlags: 0
@@ -1812,10 +1812,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 1
-  sensivityHor: 5
-  sensivityVert: 5
-  minVert: -45
-  maxVert: 45
+  SensivityHor: 9
+  SensivityVert: 5
+  MinVert: -45
+  MaxVert: 45
 --- !u!143 &2125195212
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1910,8 +1910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4709197512cf64076956f0ddcc20d8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  gravity: -9.8
+  PlayerData: {fileID: 11400000, guid: 955ba1e4542764904920813f8f3934ea, type: 2}
 --- !u!114 &2125195217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,3 +1923,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e315a06153a440e8440834e0315a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerData: {fileID: 11400000, guid: 955ba1e4542764904920813f8f3934ea, type: 2}

@@ -1,15 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    public float Speed = 20.0f;
-    public int Damage = 1;
-    
+    [SerializeField] private Weapon weaponData;
+
+    private void Start()
+    {
+        transform.localScale = new Vector3(this.weaponData.Scale, this.weaponData.Scale, this.weaponData.Scale );
+    }
+
     void Update()
     {
-        transform.Translate(0,0, Speed * Time.deltaTime);
+        transform.Translate(0,0, this.weaponData.AttackSpeed * Time.deltaTime);
     }
 
     // Эта функция вызывается, когда с триггером сталкивается другой объект.
@@ -20,7 +25,7 @@ public class FireBall : MonoBehaviour
         if (player !=null) 
         {
             Debug.Log("Player hit");
-            player.Hurt(1);
+            player.Hurt(this.weaponData.Damage);
         }
         Destroy(this.gameObject);
     }
