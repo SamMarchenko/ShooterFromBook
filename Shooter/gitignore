@@ -1,0 +1,76 @@
+# =============== #
+# Unity generated #
+# =============== #
+/Shooter/Library
+/Shooter/obj
+/Shooter/Temp
+/Shooter/Logs
+/Shooter/UnityGenerated
+/Shooter/HostedData
+/Shooter/Assets/AssetBundlesResources
+/Shooter/Assets/AssetBundlesOutput
+/Shooter/Assets/StreamingAssets/*
+!/Shooter/Assets/StreamingAssets/backup/
+
+# =========================== #
+# Resharper / Rider generated #
+# =========================== #
+/Shooter/.idea
+/Shooter/.vs
+/Shooter/*.apk
+/Shooter/*.sln
+
+/Shooter/Assets/Plugins/Editor/JetBrains
+
+/Shooter/Assets/Plugins/Editor/JetBrains.*
+
+/Shooter/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+/Shooter/ExportedObj
+/Shooter/*.csproj
+/Shooter/*.userprefs
+/Shooter/*.unityproj
+/Shooter/*.svd
+/Shooter/*.pidb
+/Shooter/*.suo
+/Shooter/*.user
+/Shooter/*.booproj
+/Shooter/*.htm
+# ===================================== #
+# Koskins #
+# ===================================== #
+Shooter/Assets/Temp/*
+Shooter/Assets/Temp
+Shooter/Assets/Temp.meta
+Shooter/Assets/Logs/
+Shooter/Assets/3dPackages/KoshkinAssets/
+Shooter/Assets/3dPackages/KoshkinAssets
+Shooter/Assets/3dPackages/KoshkinAssets.meta
+Shooter/Assets/Plugins/HierarchyPro/
+Shooter/Assets/Plugins/HierarchyPro.meta
+Shooter/Assets/Logs.meta
+
+
+# ===================== #
+# Kitchen Shooter Model #
+# ===================== #
+!/Shooter/Assets/Temp/Data/
+/Shooter/Assets/Temp/Data/*
+!/Shooter/Assets/Temp/Data/KitchenShooterModel/
+
+
+
+Build/Shooter.apk
+Keystore/user.keystore
+Build/ShooterResolutionTest.apk
+Build/
+
+# ===================== #
+# Bundles and Server Data #
+# ===================== #
+/Shooter/ServerData
+Shooter/Shooter.sln.DotSettings
+Shooter/UserSettings/EditorUserSettings.asset
