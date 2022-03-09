@@ -126,8 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1987a0f47d9904804aeaa2974113f2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyData: {fileID: 11400000, guid: 895c3108c06ef43b68fedee12c9405d8, type: 2}
+  EnemyData: {fileID: 0}
   fireballPrefab: {fileID: 2096750971851724041, guid: 12865445113e8481d96c940aa09cc20a, type: 3}
+  _enemies:
+  - {fileID: 11400000, guid: 807b2c3f2581a40e2be95f8fdfae7b55, type: 2}
+  - {fileID: 11400000, guid: 895c3108c06ef43b68fedee12c9405d8, type: 2}
+  _weapons: []
 --- !u!1001 &3637022016215405063
 PrefabInstance:
   m_ObjectHideFlags: 0
