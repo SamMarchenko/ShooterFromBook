@@ -13,7 +13,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0a857b2d-82de-10b9-d209-a96896cf7a25}</ProjectGuid>
+    <ProjectGuid>{5b4443e6-6c3a-ddc3-de83-98196bb6f370}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -333,7 +333,7 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Users/violetta/Desktop/MyProject/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Applications/RemoteApps/Shooter/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -683,23 +683,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{59ca597f-ad0f-67a5-057f-20abc609794a}</Project>
+      <Project>{958217b0-86ac-0b20-c0c7-0fb15859d9da}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{15d1971f-1c6a-062b-bd96-69e799ee0a92}</Project>
+      <Project>{7f347968-c497-94f8-125c-ca989feb0fbd}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{8ca0fbd6-c618-f6f9-c57d-ad8d54a7d363}</Project>
+      <Project>{2b92f0d0-9ee1-c43a-3cfa-e888de82c075}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{b034a0c8-25f4-c65d-cd08-f38fc09bf345}</Project>
+      <Project>{6eb7efa3-ebf4-7070-a41e-b30359efa821}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{23883d90-a8ed-195b-e60a-d1998014f9d3}</Project>
+      <Project>{4b2c9843-f6e6-0b01-29fd-99012a90ffe1}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

@@ -13,7 +13,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{22966b30-7464-190d-83d7-b08f35872b12}</ProjectGuid>
+    <ProjectGuid>{dcc6fea7-9bf7-8eb9-4c85-31da3c9d3ffe}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -52,17 +52,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CubeMove.cs" />
-     <Compile Include="Assets\Scripts\RayShooter.cs" />
-     <Compile Include="Assets\Scripts\FireBall.cs" />
-     <Compile Include="Assets\Scripts\SceneController.cs" />
-     <Compile Include="Assets\Scripts\ReactiveTarget.cs" />
-     <Compile Include="Assets\Scripts\PlayerCharacter.cs" />
-     <Compile Include="Assets\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Scripts\HelloWorld.cs" />
-     <Compile Include="Assets\Scripts\FPSInput.cs" />
-     <Compile Include="Assets\Scripts\WanderingAI.cs" />
-     <Compile Include="Assets\Scripts\Spin.cs" />
+     <Compile Include="Assets\Weapons\Scripts\Weapon.cs" />
+     <Compile Include="Assets\Players\Scripts\RayShooter.cs" />
+     <Compile Include="Assets\Weapons\Scripts\FireBall.cs" />
+     <Compile Include="Assets\Core\Scripts\SceneController.cs" />
+     <Compile Include="Assets\Enemies\Scripts\ReactiveTarget.cs" />
+     <Compile Include="Assets\Players\PlayerCharacter.cs" />
+     <Compile Include="Assets\Players\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Players\Scripts\FPSInput.cs" />
+     <Compile Include="Assets\Enemies\Scripts\WanderingAI.cs" />
+     <Compile Include="Assets\Enemies\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Players\Scripts\Player.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -633,39 +633,39 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{3c3165b7-b9b4-8536-75e9-464d3f3e7a50}</Project>
+      <Project>{c62653f0-a669-7b42-a016-8815309dae18}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{0a857b2d-82de-10b9-d209-a96896cf7a25}</Project>
+      <Project>{5b4443e6-6c3a-ddc3-de83-98196bb6f370}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
-      <Project>{5b1e9e72-dd24-0c0e-9219-4cc312a0b380}</Project>
+      <Project>{8b732077-3a42-72fb-e6d6-150500846399}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
-      <Project>{850fb9a3-88f1-352c-d4fb-612a4fe86d1d}</Project>
+      <Project>{d77bd406-566d-af44-12c0-3fafb4ce206f}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{50a37f0a-5c0c-7377-872e-4789d693e49c}</Project>
+      <Project>{16e17719-4f21-2383-0780-1b872e14d8f5}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{59ca597f-ad0f-67a5-057f-20abc609794a}</Project>
+      <Project>{958217b0-86ac-0b20-c0c7-0fb15859d9da}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{15d1971f-1c6a-062b-bd96-69e799ee0a92}</Project>
+      <Project>{7f347968-c497-94f8-125c-ca989feb0fbd}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
-      <Project>{099cbb32-d0a6-2b99-7be5-18f77a855c5e}</Project>
+      <Project>{13e3c0fb-7e8f-307e-8b38-a211622654c2}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{8ca0fbd6-c618-f6f9-c57d-ad8d54a7d363}</Project>
+      <Project>{2b92f0d0-9ee1-c43a-3cfa-e888de82c075}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

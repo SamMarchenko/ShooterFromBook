@@ -13,7 +13,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4409cf07-1d9f-048d-8673-1096c6c11235}</ProjectGuid>
+    <ProjectGuid>{6403765c-4824-9e64-2630-8b1d0ea8800e}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -98,9 +98,9 @@
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\UserInterface\ToolbarButton.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Components\TabView.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Views\Adapters\ListAdapters\HistoryEntryChangeListAdapter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Assets\UiConstants.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Common\LocationAttribute.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Components\ProgressView.cs" />
+     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Assets\UiConstants.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Components\ChangeListElements\BaseChangeListElement.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Components\AlertBox.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.3.9\Editor\Views\StartPageView.cs" />
@@ -414,7 +414,7 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Users/violetta/Desktop/MyProject/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Applications/RemoteApps/Shooter/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -764,19 +764,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{15d1971f-1c6a-062b-bd96-69e799ee0a92}</Project>
+      <Project>{7f347968-c497-94f8-125c-ca989feb0fbd}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{8ca0fbd6-c618-f6f9-c57d-ad8d54a7d363}</Project>
+      <Project>{2b92f0d0-9ee1-c43a-3cfa-e888de82c075}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{b034a0c8-25f4-c65d-cd08-f38fc09bf345}</Project>
+      <Project>{6eb7efa3-ebf4-7070-a41e-b30359efa821}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{23883d90-a8ed-195b-e60a-d1998014f9d3}</Project>
+      <Project>{4b2c9843-f6e6-0b01-29fd-99012a90ffe1}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
