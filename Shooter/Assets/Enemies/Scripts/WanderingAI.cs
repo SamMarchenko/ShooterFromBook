@@ -1,21 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemies.Scripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WanderingAI : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemyData;
-
-    public Enemy EnemyData 
-    {
-        get { return _enemyData; }
-        set { _enemyData = value; }
-    }
+    private Enemy _enemyData;
     // Эти два поля добавляются перед любыми методами, как и в сценарии SceneController.
     [SerializeField] private GameObject fireballPrefab; 
     private GameObject _fireball;
     [SerializeField] private Weapon[] _weapons;
-    
+
+    private void Start()
+    {
+        _enemyData = gameObject.GetComponent<EnemyController>().EnemyData;
+    }
+
     void Update()
     {
         if (_enemyData.Alive && (this.transform.rotation.x == 0))

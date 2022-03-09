@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8883987682551564118}
   - component: {fileID: 8883987682551564119}
   - component: {fileID: 8883987682551564074}
+  - component: {fileID: 7069867563607331925}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -113,7 +114,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c682d1e1150234f5cb6dc5610830509f, type: 2}
   - {fileID: 2100000, guid: ea8b3aaba6efc4c9ea2674f5debab705, type: 2}
   - {fileID: 2100000, guid: 694eedf17a5284e63b39a79b674883f1, type: 2}
-  EnemyData: {fileID: 11400000, guid: 895c3108c06ef43b68fedee12c9405d8, type: 2}
 --- !u!114 &8883987682551564074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,12 +126,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1987a0f47d9904804aeaa2974113f2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyData: {fileID: 0}
   fireballPrefab: {fileID: 2096750971851724041, guid: 12865445113e8481d96c940aa09cc20a, type: 3}
-  _enemies:
-  - {fileID: 11400000, guid: 807b2c3f2581a40e2be95f8fdfae7b55, type: 2}
-  - {fileID: 11400000, guid: 895c3108c06ef43b68fedee12c9405d8, type: 2}
   _weapons: []
+--- !u!114 &7069867563607331925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883987682551564112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc09130b89d4c97bb585cdfc2ac1530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyData: {fileID: 0}
 --- !u!1001 &3637022016215405063
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemies.Scripts;
 using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
-    // Сериализованная переменная для связи с объектом - шаблоном.
-    [SerializeField] private GameObject _enemyPrefab;  
-    // Закрытая переменная для слежения за экземпляром врага в сцене.
+    [SerializeField] private GameObject _enemyPrefab;
     private GameObject _enemy;
-    
     [SerializeField] private Enemy[] _enemies;
 
     void Update()
@@ -17,8 +15,7 @@ public class SceneController : MonoBehaviour
         {
             // Метод, копирующий объект - шаблон.
             _enemy = Instantiate(_enemyPrefab) as GameObject;
-            // ПРОДУМАТЬ.
-            _enemy.GetComponent<WanderingAI>().EnemyData = _enemies[Random.Range(0, _enemies.Length)];
+            _enemy.GetComponent<EnemyController>().EnemyData = _enemies[Random.Range(0, _enemies.Length)];
             float SpawnX = Random.Range(-23,23);
             float SpawnZ = Random.Range(-30, 15);
             _enemy.transform.position = new Vector3(SpawnX, 4, SpawnZ);

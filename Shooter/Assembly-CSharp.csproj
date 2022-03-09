@@ -63,6 +63,7 @@
      <Compile Include="Assets\Enemies\Scripts\WanderingAI.cs" />
      <Compile Include="Assets\Enemies\Scripts\Enemy.cs" />
      <Compile Include="Assets\Players\Scripts\Player.cs" />
+     <Compile Include="Assets\Enemies\Scripts\EnemyController.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

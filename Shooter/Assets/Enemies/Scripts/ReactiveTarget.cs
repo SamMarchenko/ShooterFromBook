@@ -1,33 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemies.Scripts;
 using UnityEngine;
 
 public class ReactiveTarget : MonoBehaviour
 {
-    //public int Hp = 2;
     public Material[] mat = new Material[3];
-
-    [SerializeField] private Enemy EnemyData;
     private int _enemyMaxHp;
+    private Enemy _enemyData;
     private void Start()
     {
         gameObject.GetComponent<MeshRenderer>().material = mat[2];
-        _enemyMaxHp = EnemyData.EnemyHp;
+        _enemyData = gameObject.GetComponent<EnemyController>().EnemyData;
+        _enemyMaxHp = _enemyData.EnemyHp;
     }
     public void ReactToHit()
     {
         var behavior = GetComponent<WanderingAI>();
-        if (behavior !=null && _enemyMaxHp==EnemyData.EnemyHp)
+        if (behavior !=null && _enemyMaxHp== _enemyData.EnemyHp)
         {
             gameObject.GetComponent<MeshRenderer>().material = mat[1];
-            EnemyData.EnemyHp--;
+            _enemyData.EnemyHp--;
         }
         else if (behavior != null)
         {
-            EnemyData.EnemyHp--;
-            if (EnemyData.EnemyHp <=0)
+            _enemyData.EnemyHp--;
+            if (_enemyData.EnemyHp <=0)
             {
-                EnemyData.Alive = false;
+                _enemyData.Alive = false;
                 //behavior.SetAlive(false);
                 StartCoroutine(Die());
             }
@@ -42,8 +42,8 @@ public class ReactiveTarget : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = mat[0];
             yield return new WaitForSeconds(1.5f);
             // Объект может уничтожить себя сам как любой другой объект.
-            EnemyData.EnemyHp = _enemyMaxHp;
-            EnemyData.Alive = true;
+            _enemyData.EnemyHp = _enemyMaxHp;
+            _enemyData.Alive = true;
             Destroy(this.gameObject);
         }
     }
