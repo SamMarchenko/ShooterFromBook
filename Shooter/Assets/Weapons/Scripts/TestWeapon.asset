@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackSpeed: 4
   Damage: 4
-  Scale: 2
+  Scale: 0.5
