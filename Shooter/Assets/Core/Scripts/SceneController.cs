@@ -12,6 +12,7 @@ public class SceneController : MonoBehaviour
     private GameObject _enemy;
     [SerializeField] private Enemy[] _enemies;
     private EnemyController _Enemy;
+    
 
     private void Start()
     {

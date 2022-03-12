@@ -10,9 +10,22 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private Player PlayerData;
     [SerializeField] private Text PlHPLabel;
     private int _playerHP;
+    public int CurrentHP
+    {
+        get {return _playerHP; }
+    }
+    
+    private FPSInput Control;
+    private MouseLook MouseObserveX;
 
     private void Start()
     {
+        Control = GetComponent<FPSInput>();
+        Control.enabled = true;
+        
+        MouseObserveX = GetComponent<MouseLook>();
+        MouseObserveX.enabled = true;
+        
         _playerHP = PlayerData.PlayerHp;
         PlHPLabel.text = $"<color=green>HP: {_playerHP}</color>";
     }
@@ -21,7 +34,8 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (_playerHP == 0)
         {
-            Destroy(this.gameObject);
+            Control.enabled = false;
+            MouseObserveX.enabled = false;
         }
     }
 

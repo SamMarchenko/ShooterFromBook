@@ -52,6 +52,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Core\Scripts\DeathScreenController.cs" />
      <Compile Include="Assets\Enemies\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Weapons\Scripts\Weapon.cs" />
      <Compile Include="Assets\Players\Scripts\RayShooter.cs" />
