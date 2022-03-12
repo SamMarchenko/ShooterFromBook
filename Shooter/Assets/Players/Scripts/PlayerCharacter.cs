@@ -9,27 +9,26 @@ public class PlayerCharacter : MonoBehaviour
 {
     [SerializeField] private Player PlayerData;
     [SerializeField] private Text PlHPLabel;
-    private int _playerMaxHP;
+    private int _playerHP;
 
     private void Start()
     {
-        _playerMaxHP = PlayerData.PlayerHp;
-        PlHPLabel.text = $"<color=green>HP: {PlayerData.PlayerHp}</color>";
+        _playerHP = PlayerData.PlayerHp;
+        PlHPLabel.text = $"<color=green>HP: {_playerHP}</color>";
     }
 
     private void Update()
     {
-        if (PlayerData.PlayerHp == 0)
+        if (_playerHP == 0)
         {
             Destroy(this.gameObject);
-            PlayerData.PlayerHp = _playerMaxHP;
         }
     }
 
     public void Hurt(int damage)
     {
         // Уменьшение здоровья игрока.
-        PlayerData.PlayerHp = (PlayerData.PlayerHp - damage) < 0 ? 0 : (PlayerData.PlayerHp - damage);
-        PlHPLabel.text = $"<color=green>HP: {PlayerData.PlayerHp}</color>";
+        _playerHP = (_playerHP - damage) < 0 ? 0 : (_playerHP - damage);
+        PlHPLabel.text = $"<color=green>HP: {_playerHP}</color>";
     }
 }
