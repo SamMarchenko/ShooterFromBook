@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 53bab4d059d944d78a656f83a15b2c0f, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 7b59612332f9f449f856e20fc3915e90, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1784,7 +1784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click <color=red>Enter</color> to Restart
+  m_Text: Press <color=red>F</color> to Restart
 --- !u!222 &1064516336
 CanvasRenderer:
   m_ObjectHideFlags: 0
