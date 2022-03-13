@@ -12,24 +12,28 @@ public class FPSInput : MonoBehaviour
     private float _deltaX;
     private float _deltaZ;
     private CharacterController _characterController;
+    private float _playerCurrentSpeed;
+    private float _playerCurrentGravity;
     
     void Start()
     {
         // Доступ к другим компонентам, присоединенным к этому же объекту.
-        _characterController = GetComponent<CharacterController>(); 
+        _characterController = GetComponent<CharacterController>();
+        _playerCurrentSpeed = PlayerData.PlayerSpeed;
+        _playerCurrentGravity = PlayerData.Gravity;
     }
     
     void Update()
     {
-        _deltaX = Input.GetAxis("Horizontal") * PlayerData.PlayerSpeed;
-        _deltaZ = Input.GetAxis("Vertical") * PlayerData.PlayerSpeed;
+        _deltaX = Input.GetAxis("Horizontal") * _playerCurrentSpeed;
+        _deltaZ = Input.GetAxis("Vertical") * _playerCurrentSpeed;
         transform.Translate(_deltaX * Time.deltaTime, 0,_deltaZ * Time.deltaTime );
         
         var movement = new Vector3(_deltaX, 0 , _deltaZ);
         // Ограничение движения по диагонали той же скоростью, что и движение параллельно осям.
-        movement = Vector3.ClampMagnitude(movement, PlayerData.PlayerSpeed); 
+        movement = Vector3.ClampMagnitude(movement, _playerCurrentSpeed); 
         // Используем значение переменной gravity вместо нуля.
-        movement.y = PlayerData.Gravity;
+        movement.y = _playerCurrentGravity;
         movement *= Time.deltaTime;
         // Преобразуем вектор движения от локальных к глобальным координатам.
         movement = transform.TransformDirection(movement);

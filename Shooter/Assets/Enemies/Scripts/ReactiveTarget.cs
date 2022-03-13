@@ -6,29 +6,28 @@ using UnityEngine;
 public class ReactiveTarget : MonoBehaviour
 {
     public Material[] mat = new Material[3];
-    private int _enemyMaxHp;
+    private int _enemyCurrentHp;
     private Enemy _enemyData;
     private void Start()
     {
         gameObject.GetComponent<MeshRenderer>().material = mat[2];
         _enemyData = gameObject.GetComponent<EnemyController>().EnemyData;
-        _enemyMaxHp = _enemyData.EnemyHp;
+        _enemyCurrentHp = _enemyData.EnemyMaxHp;
     }
     public void ReactToHit()
     {
         var behavior = GetComponent<WanderingAI>();
-        if (behavior !=null && _enemyMaxHp== _enemyData.EnemyHp)
+        if (behavior !=null && _enemyCurrentHp == _enemyData.EnemyMaxHp)
         {
             gameObject.GetComponent<MeshRenderer>().material = mat[1];
-            _enemyData.EnemyHp--;
+            _enemyCurrentHp--;
         }
         else if (behavior != null)
         {
-            _enemyData.EnemyHp--;
-            if (_enemyData.EnemyHp <=0)
+            _enemyCurrentHp--;
+            if (_enemyCurrentHp <=0)
             {
                 _enemyData.Alive = false;
-                //behavior.SetAlive(false);
                 StartCoroutine(Die());
             }
         }
@@ -42,7 +41,7 @@ public class ReactiveTarget : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = mat[0];
             yield return new WaitForSeconds(1.5f);
             // Объект может уничтожить себя сам как любой другой объект.
-            _enemyData.EnemyHp = _enemyMaxHp;
+            _enemyCurrentHp = _enemyData.EnemyMaxHp;
             _enemyData.Alive = true;
             Destroy(this.gameObject);
         }

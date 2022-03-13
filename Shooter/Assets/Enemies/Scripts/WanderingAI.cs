@@ -12,10 +12,14 @@ public class WanderingAI : MonoBehaviour
     [SerializeField] private GameObject fireballPrefab; 
     private GameObject _fireball;
     [SerializeField] private Weapon[] _weapons;
+    private float _currentSpeed;
+    private float _currentVewingRange;
 
     private void Start()
     {
         _enemyData = gameObject.GetComponent<EnemyController>().EnemyData;
+        _currentSpeed = _enemyData.EnemySpeed;
+        _currentVewingRange = _enemyData.VewingRange;
     }
 
     void Update()
@@ -23,7 +27,7 @@ public class WanderingAI : MonoBehaviour
         if (_enemyData.Alive && (this.transform.rotation.x == 0))
         {
             // Непрерывно движемся вперед в каждои кадре, несмотря на повороты.
-            transform.Translate(0, 0, _enemyData.EnemySpeed * Time.deltaTime); 
+            transform.Translate(0, 0, _currentSpeed * Time.deltaTime); 
             // Луч находится в том же положении и нацеливается в том же направлении, что и персонаж.
             var ray = new Ray(transform.position, transform.forward); 
             RaycastHit hit;
@@ -45,12 +49,12 @@ public class WanderingAI : MonoBehaviour
                         _fireball.transform.rotation = transform.rotation;
                     }
                 }
-                else if (hit.distance < _enemyData.VewingRange)
+                else if (hit.distance < _currentVewingRange)
                 {
                     float angle = Random.Range(-110, 110);
                     transform.Rotate(0, angle, 0);
                 }
-                if (hit.distance < _enemyData.VewingRange)
+                if (hit.distance < _currentVewingRange)
                 {
                     float angle = Random.Range(-110, 110);
                     // Поворот с наполовину случайным выбором направления.

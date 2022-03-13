@@ -32,13 +32,12 @@ public class SceneController : MonoBehaviour
     private void CreateEnemy()
     {
         // Метод, копирующий объект - шаблон.
-        _enemy = Instantiate(_enemyPrefab) as GameObject; 
-        //ПОДУМАТЬ, КАК УБРАТЬ GetComponent.
-         _Enemy.EnemyData = _enemies[Random.Range(0, _enemies.Length)];
-         float SpawnX = Random.Range(-23,23);
-         float SpawnZ = Random.Range(-30, 15); 
-         _enemy.transform.position = new Vector3(SpawnX, 4, SpawnZ); 
-         float angle = Random.Range(0, 360); 
-         _enemy.transform.Rotate(0, angle, 0);
+        _enemy = Instantiate(_enemyPrefab) as GameObject;
+        _Enemy.EnemyData = _enemies[Random.Range(0, _enemies.Length)];
+        float SpawnX = Random.Range(-23,23);
+        float SpawnZ = Random.Range(-30, 15); 
+        _enemy.transform.position = new Vector3(SpawnX, 4, SpawnZ); 
+        float angle = Random.Range(0, 360); 
+        _enemy.transform.Rotate(0, angle, 0);
     }
 }

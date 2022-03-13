@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : ScriptableObject
 {
    [Header("Max health")]
-   public int EnemyHp;
+   public int EnemyMaxHp;
    [Header("Move speed")]
    public float EnemySpeed;
    [Header("Viewing range")]
