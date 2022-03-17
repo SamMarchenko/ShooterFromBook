@@ -65,6 +65,8 @@
      <Compile Include="Assets\Enemies\Scripts\WanderingAI.cs" />
      <Compile Include="Assets\Enemies\Scripts\Enemy.cs" />
      <Compile Include="Assets\Players\Scripts\Player.cs" />
+     <Compile Include="Assets\Graphics\UIController.cs" />
+     <Compile Include="Assets\Graphics\SettingsPopup.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -669,6 +671,10 @@
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{2b92f0d0-9ee1-c43a-3cfa-e888de82c075}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{a2b4e28a-dff0-ef79-03ab-6a0efc72a37f}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,24 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
     // Start is called before the first frame update
+    
     void Start()
     {
         // Доступ к другим компонентам, присоединенным к этому же объекту.
         _camera = GetComponent<Camera>();
+        
+        /*
         // Скрываем указатель мыши в центре экрана.
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        */
     }
     // Update is called once per frame
     void Update()
     {
         // Реакция на нажатие кнопки мыши.
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             // Середина экрана - половина высоты и ширины
             Vector3 point = new Vector3(_camera.pixelWidth/2, _camera.pixelHeight/2, 0);
