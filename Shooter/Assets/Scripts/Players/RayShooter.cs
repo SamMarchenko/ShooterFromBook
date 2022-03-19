@@ -5,30 +5,17 @@ using UnityEngine.EventSystems;
 
 public class RayShooter : MonoBehaviour
 {
-    private Camera _camera;
-    // Start is called before the first frame update
+    [SerializeField] private Camera _Camera;
     
-    void Start()
-    {
-        // Доступ к другим компонентам, присоединенным к этому же объекту.
-        _camera = GetComponent<Camera>();
-        
-        /*
-        // Скрываем указатель мыши в центре экрана.
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        */
-    }
-    // Update is called once per frame
     void Update()
     {
         // Реакция на нажатие кнопки мыши.
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             // Середина экрана - половина высоты и ширины
-            Vector3 point = new Vector3(_camera.pixelWidth/2, _camera.pixelHeight/2, 0);
+            Vector3 point = new Vector3(_Camera.pixelWidth/2, _Camera.pixelHeight/2, 0);
             // Создание в этой точке луча методом ScreenPointToRay().
-            Ray ray = _camera.ScreenPointToRay(point);
+            Ray ray = _Camera.ScreenPointToRay(point);
             RaycastHit hit;
             
             // Испущенный луч заполняет информацией переменную, на которую имеется ссылка.
@@ -61,8 +48,8 @@ public class RayShooter : MonoBehaviour
     void OnGUI()
     {
         int size = 12;
-        float posX = _camera.pixelWidth / 2 - size/4;
-        float posY = _camera.pixelHeight / 2 - size/2;
+        float posX = _Camera.pixelWidth / 2 - size/4;
+        float posY = _Camera.pixelHeight / 2 - size/2;
         // Команда GUI.Label() отображает на экране символ.
         GUI.Label(new Rect (posX, posY, size, size), "*"); 
     }
