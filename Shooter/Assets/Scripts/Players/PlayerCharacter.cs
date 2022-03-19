@@ -9,40 +9,30 @@ public class PlayerCharacter : MonoBehaviour
 {
     [SerializeField] private Player PlayerData;
     [SerializeField] private Text PlHPLabel;
-    private int _playerHP;
-    public int CurrentHP
-    {
-        get {return _playerHP; }
-    }
+    [SerializeField] private FPSInput _FpsInput;
+    [SerializeField] private MouseLook _MouseLook;
+    public int CurrentHP { get; private set; }
     
-    private FPSInput Control;
-    private MouseLook MouseObserveX;
-
     private void Start()
     {
-        Control = GetComponent<FPSInput>();
-        Control.enabled = true;
-        
-        MouseObserveX = GetComponent<MouseLook>();
-        MouseObserveX.enabled = true;
-        
-        _playerHP = PlayerData.PlayerHp;
-        PlHPLabel.text = $"<color=green>HP: {_playerHP}</color>";
+        _FpsInput.enabled = true;
+        _MouseLook.enabled = true;
+        CurrentHP = PlayerData.PlayerHp;
+        PlHPLabel.text = $"<color=green>HP: {CurrentHP}</color>";
     }
-
-    private void Update()
-    {
-        if (_playerHP == 0)
-        {
-            Control.enabled = false;
-            MouseObserveX.enabled = false;
-        }
-    }
-
+    
     public void Hurt(int damage)
     {
         // Уменьшение здоровья игрока.
-        _playerHP = (_playerHP - damage) < 0 ? 0 : (_playerHP - damage);
-        PlHPLabel.text = $"<color=green>HP: {_playerHP}</color>";
+        CurrentHP = (CurrentHP - damage) < 0 ? 0 : (CurrentHP - damage);
+        PlHPLabel.text = $"<color=green>HP: {CurrentHP}</color>";
+        if (CurrentHP != 0) return;
+        DeathPlayer();
+    }
+    
+    public void DeathPlayer()
+    {
+        _FpsInput.enabled = false;
+        _MouseLook.enabled = false;
     }
 }
