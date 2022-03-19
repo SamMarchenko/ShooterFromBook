@@ -24,7 +24,6 @@ public class FireBall : MonoBehaviour
         // Проверяем, является ли другой обхект объектом PlayerCharacter.
         if (player !=null) 
         {
-            Debug.Log("Player hit");
             player.Hurt(this.weaponData.Damage);
         }
         Destroy(this.gameObject);

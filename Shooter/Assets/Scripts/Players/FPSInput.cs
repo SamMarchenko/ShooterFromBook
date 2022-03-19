@@ -17,7 +17,6 @@ public class FPSInput : MonoBehaviour
     
     void Start()
     {
-        // Доступ к другим компонентам, присоединенным к этому же объекту.
         _playerCurrentSpeed = PlayerData.PlayerSpeed;
         _playerCurrentGravity = PlayerData.Gravity;
     }

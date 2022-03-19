@@ -23,7 +23,7 @@ public class MouseLook : MonoBehaviour
     {
         var body = GetComponent<Rigidbody>();
         // Проверяем, существует ли этот компонент.
-        if (body!= null)
+        if (body != null)
         {
             body.freezeRotation = true;
         }

@@ -7,24 +7,24 @@ using Random = UnityEngine.Random;
 
 public class WanderingAI : MonoBehaviour
 {
-    private Enemy _enemyData;
     // Эти два поля добавляются перед любыми методами, как и в сценарии SceneController.
     [SerializeField] private GameObject fireballPrefab; 
     private GameObject _fireball;
+    [SerializeField] private EnemyController _EnemyController;
     [SerializeField] private Weapon[] _weapons;
     private float _currentSpeed;
     private float _currentVewingRange;
+    
 
     private void Start()
     {
-        _enemyData = gameObject.GetComponent<EnemyController>().EnemyData;
-        _currentSpeed = _enemyData.EnemySpeed;
-        _currentVewingRange = _enemyData.VewingRange;
+        _currentSpeed = _EnemyController.EnemyData.EnemySpeed;
+        _currentVewingRange = _EnemyController.EnemyData.VewingRange;
     }
 
     void Update()
     {
-        if (_enemyData.Alive && (this.transform.rotation.x == 0))
+        if (_EnemyController.EnemyData.Alive && (this.transform.rotation.x == 0))
         {
             // Непрерывно движемся вперед в каждои кадре, несмотря на повороты.
             transform.Translate(0, 0, _currentSpeed * Time.deltaTime); 

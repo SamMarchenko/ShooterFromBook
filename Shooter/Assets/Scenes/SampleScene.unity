@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &184445709
 Transform:
   m_ObjectHideFlags: 0
@@ -1443,6 +1443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f0bc1ac380f4dcd86eb46bbc583196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Camera: {fileID: 963194227}
 --- !u!1 &1014229739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1014229740
 Transform:
   m_ObjectHideFlags: 0
@@ -2036,6 +2037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 8883987682551564112, guid: 321400942c56448a0a8bb05783b511d4, type: 3}
+  _EnemyController: {fileID: 7069867563607331925, guid: 321400942c56448a0a8bb05783b511d4, type: 3}
   _enemies:
   - {fileID: 11400000, guid: 807b2c3f2581a40e2be95f8fdfae7b55, type: 2}
   - {fileID: 11400000, guid: 895c3108c06ef43b68fedee12c9405d8, type: 2}
@@ -2140,7 +2142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1326354284
 Transform:
   m_ObjectHideFlags: 0
@@ -2235,7 +2237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1520515219
 Transform:
   m_ObjectHideFlags: 0
@@ -2518,7 +2520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1805188686
 Transform:
   m_ObjectHideFlags: 0
@@ -3076,6 +3078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerData: {fileID: 11400000, guid: 955ba1e4542764904920813f8f3934ea, type: 2}
+  _CharacterController: {fileID: 2125195212}
 --- !u!114 &2125195217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,6 +3093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerData: {fileID: 11400000, guid: 955ba1e4542764904920813f8f3934ea, type: 2}
   PlHPLabel: {fileID: 788406811}
+  _FpsInput: {fileID: 2125195216}
+  _MouseLook: {fileID: 2125195211}
 --- !u!1001 &5903338117910334976
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,19 +7,19 @@ public class ReactiveTarget : MonoBehaviour
 {
     public Material[] mat = new Material[3];
     private int _enemyCurrentHp;
-    private Enemy _enemyData;
+    [SerializeField] private EnemyController _EnemyController;
+    [SerializeField] private MeshRenderer _MeshRenderer;
     private void Start()
     {
-        gameObject.GetComponent<MeshRenderer>().material = mat[2];
-        _enemyData = gameObject.GetComponent<EnemyController>().EnemyData;
-        _enemyCurrentHp = _enemyData.EnemyMaxHp;
+        _MeshRenderer.material = mat[2];
+        _enemyCurrentHp = _EnemyController.EnemyData.EnemyMaxHp;
     }
     public void ReactToHit()
     {
         var behavior = GetComponent<WanderingAI>();
-        if (behavior !=null && _enemyCurrentHp == _enemyData.EnemyMaxHp)
+        if (behavior !=null && _enemyCurrentHp == _EnemyController.EnemyData.EnemyMaxHp)
         {
-            gameObject.GetComponent<MeshRenderer>().material = mat[1];
+            _MeshRenderer.material = mat[1];
             _enemyCurrentHp--;
         }
         else if (behavior != null)
@@ -27,7 +27,7 @@ public class ReactiveTarget : MonoBehaviour
             _enemyCurrentHp--;
             if (_enemyCurrentHp <=0)
             {
-                _enemyData.Alive = false;
+                _EnemyController.EnemyData.Alive = false;
                 StartCoroutine(Die());
             }
         }
@@ -38,12 +38,13 @@ public class ReactiveTarget : MonoBehaviour
         if (this.transform.rotation.x == 0)
         {
             this.transform.Rotate(-75, 0, 0);
-            gameObject.GetComponent<MeshRenderer>().material = mat[0];
+            _MeshRenderer.material = mat[0];
             yield return new WaitForSeconds(1.5f);
             // Объект может уничтожить себя сам как любой другой объект.
-            _enemyCurrentHp = _enemyData.EnemyMaxHp;
-            _enemyData.Alive = true;
+            _enemyCurrentHp = _EnemyController.EnemyData.EnemyMaxHp;
+            _EnemyController.EnemyData.Alive = true;
             Destroy(this.gameObject);
         }
     }
+    
 }
