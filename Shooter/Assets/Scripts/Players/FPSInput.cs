@@ -11,14 +11,13 @@ public class FPSInput : MonoBehaviour
     [SerializeField] private Player PlayerData;
     private float _deltaX;
     private float _deltaZ;
-    private CharacterController _characterController;
+    [SerializeField] private CharacterController _CharacterController;
     private float _playerCurrentSpeed;
     private float _playerCurrentGravity;
     
     void Start()
     {
         // Доступ к другим компонентам, присоединенным к этому же объекту.
-        _characterController = GetComponent<CharacterController>();
         _playerCurrentSpeed = PlayerData.PlayerSpeed;
         _playerCurrentGravity = PlayerData.Gravity;
     }
@@ -38,7 +37,7 @@ public class FPSInput : MonoBehaviour
         // Преобразуем вектор движения от локальных к глобальным координатам.
         movement = transform.TransformDirection(movement);
         // Заставим этот вектор перемещать компонент CharacterControler.
-        _characterController.Move(movement);
+        _CharacterController.Move(movement);
     }
     
 }

@@ -16,7 +16,7 @@ public class MouseLook : MonoBehaviour
     public float SensivityVert = 5f;
     public float MinVert = -45f;
     public float MaxVert = 45f;
-    
+
     // Угол поворота по вертикали.
     private float _rotationX = 0;
     void Start()

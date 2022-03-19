@@ -8,10 +8,5 @@ public class Player : ScriptableObject
     public int PlayerHp;
     [Header("Move speed")]
     public float PlayerSpeed;
-
-    private float _gravity = -9.8f;
-    public float Gravity
-    {
-        get { return _gravity; }
-    }
+    public float Gravity { get; } = -9.8f;
 }
