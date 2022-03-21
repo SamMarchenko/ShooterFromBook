@@ -54,19 +54,21 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Controllers\DeathScreenController.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
-     <Compile Include="Assets\Graphics\UIController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\UIController.cs" />
      <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
      <Compile Include="Assets\Scripts\Players\RayShooter.cs" />
      <Compile Include="Assets\Scripts\Weapons\FireBall.cs" />
      <Compile Include="Assets\Scripts\Controllers\SceneController.cs" />
      <Compile Include="Assets\Scripts\Enemies\ReactiveTarget.cs" />
-     <Compile Include="Assets\Graphics\SettingsPopup.cs" />
+     <Compile Include="Assets\Scripts\UI\SettingsPopup.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerCharacter.cs" />
      <Compile Include="Assets\Scripts\Players\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Players\FPSInput.cs" />
      <Compile Include="Assets\Scripts\Enemies\WanderingAI.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Players\Player.cs" />
+     <Compile Include="Assets\Scripts\Controllers\Messanger.cs" />
+     <Compile Include="Assets\Scripts\Controllers\GameEvent.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -28,6 +28,7 @@ public class ReactiveTarget : MonoBehaviour
             if (_enemyCurrentHp <=0)
             {
                 _EnemyController.EnemyData.Alive = false;
+                Messenger.Broadcast(GameEvent.ENEMY_HIT);
                 StartCoroutine(Die());
             }
         }

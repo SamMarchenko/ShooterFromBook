@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemies.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -24,7 +25,8 @@ public class RayShooter : MonoBehaviour
                 // Получаем объект, в который попал луч.
                 GameObject hitObject = hit.transform.gameObject;
                 var target = hitObject.GetComponent<ReactiveTarget>();
-                if (target != null)
+                var isAlive = hitObject.GetComponent<EnemyController>();
+                if (target != null && isAlive.EnemyData.Alive == true)
                 {
                     // Вызов метода для мишени.
                     target.ReactToHit();
