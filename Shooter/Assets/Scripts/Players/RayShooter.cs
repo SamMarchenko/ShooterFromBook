@@ -23,7 +23,7 @@ public class RayShooter : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 // Получаем объект, в который попал луч.
-                GameObject hitObject = hit.transform.gameObject;
+                var hitObject = hit.transform.gameObject;
                 var target = hitObject.GetComponent<ReactiveTarget>();
                 var isAlive = hitObject.GetComponent<EnemyController>();
                 if (target != null && isAlive.EnemyData.Alive == true)
@@ -42,7 +42,7 @@ public class RayShooter : MonoBehaviour
     // Сопрограммы пользуются функциями IEnumerator.
     private IEnumerator SphereIndicator (Vector3 pos)
     {
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = pos;
         yield return new WaitForSeconds(1);
         Destroy(sphere);

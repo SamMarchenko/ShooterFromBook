@@ -12,12 +12,22 @@ public class FPSInput : MonoBehaviour
     private float _deltaX;
     private float _deltaZ;
     [SerializeField] private CharacterController _CharacterController;
+    private float _playerStartSpeed;
     private float _playerCurrentSpeed;
     private float _playerCurrentGravity;
     
+    void Awake()
+    {
+        Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
+    void OnDestroy()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
     void Start()
     {
-        _playerCurrentSpeed = PlayerData.PlayerSpeed;
+        _playerStartSpeed = PlayerData.PlayerSpeed;
+        _playerCurrentSpeed = _playerStartSpeed;
         _playerCurrentGravity = PlayerData.Gravity;
     }
     
@@ -38,5 +48,8 @@ public class FPSInput : MonoBehaviour
         // Заставим этот вектор перемещать компонент CharacterControler.
         _CharacterController.Move(movement);
     }
-    
+    private void OnSpeedChanged(float value)
+    {
+        _playerCurrentSpeed = _playerStartSpeed * value;
+    }
 }

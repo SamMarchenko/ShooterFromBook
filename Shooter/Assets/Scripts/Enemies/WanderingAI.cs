@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Enemies.Scripts;
 using UnityEngine;
+using UnityEngine.VFX;
 using Random = UnityEngine.Random;
 
 public class WanderingAI : MonoBehaviour
@@ -12,13 +13,23 @@ public class WanderingAI : MonoBehaviour
     private GameObject _fireball;
     [SerializeField] private EnemyController _EnemyController;
     [SerializeField] private Weapon[] _weapons;
-    private float _currentSpeed;
+    private float _enemyStartSpeed;
+    private float _enemyCurrentSpeed;
     private float _currentVewingRange;
-    
+
+    void Awake()
+    {
+        Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
+    void OnDestroy()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
 
     private void Start()
     {
-        _currentSpeed = _EnemyController.EnemyData.EnemySpeed;
+        _enemyStartSpeed = _EnemyController.EnemyData.EnemySpeed;
+        _enemyCurrentSpeed = _enemyStartSpeed;
         _currentVewingRange = _EnemyController.EnemyData.VewingRange;
     }
 
@@ -27,7 +38,7 @@ public class WanderingAI : MonoBehaviour
         if (_EnemyController.EnemyData.Alive && (this.transform.rotation.x == 0))
         {
             // Непрерывно движемся вперед в каждои кадре, несмотря на повороты.
-            transform.Translate(0, 0, _currentSpeed * Time.deltaTime); 
+            transform.Translate(0, 0, _enemyCurrentSpeed * Time.deltaTime); 
             // Луч находится в том же положении и нацеливается в том же направлении, что и персонаж.
             var ray = new Ray(transform.position, transform.forward); 
             RaycastHit hit;
@@ -62,6 +73,10 @@ public class WanderingAI : MonoBehaviour
                 }
             }
         }
+    }
+    private void OnSpeedChanged(float value)
+    {
+        _enemyCurrentSpeed = _enemyStartSpeed * value;
     }
 }
 
