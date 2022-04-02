@@ -3,49 +3,48 @@ using System.Collections.Generic;
 using Enemies.Scripts;
 using UnityEngine;
 
-public class ReactiveTarget : MonoBehaviour
+public class ReactiveTarget
 {
     public Material[] mat = new Material[3];
     private int _enemyCurrentHp;
-    [SerializeField] private EnemyController _EnemyController;
-    [SerializeField] private MeshRenderer _MeshRenderer;
-    private void Start()
+    private EnemyView _enemyView;
+    private MeshRenderer _meshRenderer;
+    private WanderingAI _wanderingAI;
+    
+    public ReactiveTarget (EnemyView enemyView, WanderingAI wanderingAi)
     {
-        _MeshRenderer.material = mat[2];
-        _enemyCurrentHp = _EnemyController.EnemyData.EnemyMaxHp;
+        _enemyView = enemyView;
+        _wanderingAI = wanderingAi;
+        Init();
     }
+
+    private void Init()
+    {
+        _meshRenderer = _enemyView.MeshRenderer;
+        _enemyCurrentHp = _enemyView.Enemy.EnemyMaxHp;
+        _meshRenderer.material = _enemyView.Enemy.Materials[2];
+    }
+    
+    
     public void ReactToHit()
     {
-        var behavior = GetComponent<WanderingAI>();
-        if (behavior !=null && _enemyCurrentHp == _EnemyController.EnemyData.EnemyMaxHp)
+        
+        if (_wanderingAI !=null && _enemyCurrentHp == _enemyView.Enemy.EnemyMaxHp)
         {
-            _MeshRenderer.material = mat[1];
+            _meshRenderer.material = mat[1];
             _enemyCurrentHp--;
         }
-        else if (behavior != null)
+        else if (_wanderingAI != null)
         {
             _enemyCurrentHp--;
             if (_enemyCurrentHp <=0)
             {
-                _EnemyController.EnemyData.Alive = false;
+                _enemyView.Enemy.Alive = false;
                 Messenger.Broadcast(GameEvent.ENEMY_HIT);
-                StartCoroutine(Die());
+                _enemyView.StartAnimationDie();
             }
         }
     }
-    // Опрокиддывает врага, ждет 1,5 сек и уничтожает его.
-    private IEnumerator Die()
-    {
-        if (this.transform.rotation.x == 0)
-        {
-            this.transform.Rotate(-75, 0, 0);
-            _MeshRenderer.material = mat[0];
-            yield return new WaitForSeconds(1.5f);
-            // Объект может уничтожить себя сам как любой другой объект.
-            _enemyCurrentHp = _EnemyController.EnemyData.EnemyMaxHp;
-            _EnemyController.EnemyData.Alive = true;
-            Destroy(this.gameObject);
-        }
-    }
+    
     
 }

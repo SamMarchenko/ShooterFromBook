@@ -10,6 +10,8 @@ public class Enemy : ScriptableObject
    public float EnemySpeed;
    [Header("Viewing range")]
    public float VewingRange;
+
+   public Material[] Materials;
    
    private bool _alive = true;
    public bool Alive 

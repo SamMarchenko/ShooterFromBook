@@ -25,8 +25,8 @@ public class RayShooter : MonoBehaviour
                 // Получаем объект, в который попал луч.
                 var hitObject = hit.transform.gameObject;
                 var target = hitObject.GetComponent<ReactiveTarget>();
-                var isAlive = hitObject.GetComponent<EnemyController>();
-                if (target != null && isAlive.EnemyData.Alive == true)
+                //todo: Проверить на жизнеспособность врага
+                if (target != null)
                 {
                     // Вызов метода для мишени.
                     target.ReactToHit();

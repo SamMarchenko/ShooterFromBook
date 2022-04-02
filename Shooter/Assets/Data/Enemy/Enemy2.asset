@@ -15,3 +15,7 @@ MonoBehaviour:
   EnemyMaxHp: 3
   EnemySpeed: 3
   VewingRange: 10
+  Materials:
+  - {fileID: 2100000, guid: c682d1e1150234f5cb6dc5610830509f, type: 2}
+  - {fileID: 2100000, guid: ea8b3aaba6efc4c9ea2674f5debab705, type: 2}
+  - {fileID: 2100000, guid: 694eedf17a5284e63b39a79b674883f1, type: 2}

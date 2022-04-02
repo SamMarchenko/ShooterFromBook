@@ -53,23 +53,28 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Controllers\DeathScreenController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\TestSceneController.cs" />
      <Compile Include="Assets\Scripts\Controllers\GameEvent.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\Factory Method\Enemies\TestEnemy.cs" />
      <Compile Include="Assets\Scripts\Controllers\UIController.cs" />
+     <Compile Include="Assets\Scripts\Factory Method\IEnemy.cs" />
+     <Compile Include="Assets\Scripts\Factory Method\Factories\TestFactory.cs" />
      <Compile Include="Assets\Scripts\Data\Weapon\Weapon.cs" />
      <Compile Include="Assets\Scripts\Players\RayShooter.cs" />
      <Compile Include="Assets\Scripts\Weapons\FireBall.cs" />
      <Compile Include="Assets\Scripts\Controllers\SceneController.cs" />
      <Compile Include="Assets\Scripts\Enemies\ReactiveTarget.cs" />
-     <Compile Include="Assets\Scripts\Controllers\SceneContext.cs" />
+     <Compile Include="Assets\Scripts\Controllers\TestSceneContext.cs" />
      <Compile Include="Assets\Scripts\UI\SettingsPopup.cs" />
      <Compile Include="Assets\Scripts\Controllers\Messanger.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerCharacter.cs" />
      <Compile Include="Assets\Scripts\Players\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Players\FPSInput.cs" />
+     <Compile Include="Assets\Scripts\Factory Method\IEnemiesFactory.cs" />
      <Compile Include="Assets\Scripts\Enemies\WanderingAI.cs" />
      <Compile Include="Assets\Scripts\Data\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Data\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyView.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

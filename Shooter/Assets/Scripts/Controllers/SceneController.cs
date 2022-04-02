@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
-    [SerializeField] private EnemyController _EnemyController;
     private GameObject _enemy;
     [SerializeField] private Enemy[] _enemies;
     //private EnemyController _enemyController;
@@ -36,7 +35,6 @@ public class SceneController : MonoBehaviour
     {
         // Метод, копирующий объект - шаблон.
         _enemy = Instantiate(_enemyPrefab) as GameObject;
-        _EnemyController.EnemyData = _enemies[Random.Range(0, _enemies.Length)];
         float SpawnX = Random.Range(_minWallXPos,_maxWallXPos);
         float SpawnZ = Random.Range(_minWallZPos, _maxWallZPos); 
         _enemy.transform.position = new Vector3(SpawnX, 4, SpawnZ); 
