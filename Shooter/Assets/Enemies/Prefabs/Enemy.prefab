@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e527275cc9d543c496f255fdf2a3d8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 11400000, guid: 807b2c3f2581a40e2be95f8fdfae7b55, type: 2}
+  enemyData: {fileID: 11400000, guid: 807b2c3f2581a40e2be95f8fdfae7b55, type: 2}
   _meshRenderer: {fileID: 8883987682551564117}
 --- !u!1001 &3637022016215405063
 PrefabInstance:

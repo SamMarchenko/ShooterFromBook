@@ -21,15 +21,15 @@ public class ReactiveTarget
     private void Init()
     {
         _meshRenderer = _enemyView.MeshRenderer;
-        _enemyCurrentHp = _enemyView.Enemy.EnemyMaxHp;
-        _meshRenderer.material = _enemyView.Enemy.Materials[2];
+        _enemyCurrentHp = _enemyView.EnemyData.EnemyMaxHp;
+        _meshRenderer.material = _enemyView.EnemyData.Materials[2];
     }
     
     
     public void ReactToHit()
     {
         
-        if (_wanderingAI !=null && _enemyCurrentHp == _enemyView.Enemy.EnemyMaxHp)
+        if (_wanderingAI !=null && _enemyCurrentHp == _enemyView.EnemyData.EnemyMaxHp)
         {
             _meshRenderer.material = mat[1];
             _enemyCurrentHp--;
@@ -39,12 +39,10 @@ public class ReactiveTarget
             _enemyCurrentHp--;
             if (_enemyCurrentHp <=0)
             {
-                _enemyView.Enemy.Alive = false;
+                _enemyView.EnemyData.Alive = false;
                 Messenger.Broadcast(GameEvent.ENEMY_HIT);
                 _enemyView.StartAnimationDie();
             }
         }
     }
-    
-    
 }

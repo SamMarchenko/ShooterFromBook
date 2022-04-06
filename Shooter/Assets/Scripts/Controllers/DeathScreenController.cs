@@ -17,11 +17,12 @@ public class DeathScreenController : MonoBehaviour
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
-        observY = CameraObject.GetComponent<MouseLook>();
-        observY.enabled = true;
+        //todo: решить проблему с вращением камеры после смерти
+        //observY = CameraObject.GetComponent<MouseLook>();
+        //observY.enabled = true;
 
-        Shoot = CameraObject.GetComponent<RayShooter>();
-        Shoot.enabled = true;
+        // Shoot = CameraObject.GetComponent<RayShooter>();
+        // Shoot.enabled = true;
 
         PlayerHP = PlayerObject.GetComponent<PlayerCharacter>();
         DeathScreen.SetActive(false);
@@ -31,8 +32,9 @@ public class DeathScreenController : MonoBehaviour
     {
         if (PlayerHP.CurrentHP == 0)
         {
-            observY.enabled = false;
-            Shoot.enabled = false;
+            //todo: решить проблему с вращением камеры после смерти
+            //observY.enabled = false;
+            // Shoot.enabled = false;
             DeathScreen.SetActive(true);
             if (Input.GetKeyUp(KeyCode.F))
             {

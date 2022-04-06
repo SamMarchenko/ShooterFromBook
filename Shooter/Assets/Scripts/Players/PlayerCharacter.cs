@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    [SerializeField] private Player PlayerData;
+    [SerializeField] private PlayerData PlayerData;
     [SerializeField] private Text PlHPLabel;
     [SerializeField] private FPSInput _FpsInput;
     [SerializeField] private MouseLook _MouseLook;
@@ -15,9 +15,10 @@ public class PlayerCharacter : MonoBehaviour
     
     private void Start()
     {
-        _FpsInput.enabled = true;
-        _MouseLook.enabled = true;
-        CurrentHP = PlayerData.PlayerHp;
+        //todo: решить проблему с хождением после смерти
+        //_FpsInput.enabled = true;
+        //_MouseLook.enabled = true;
+        CurrentHP = PlayerData.PlayerStartHp;
         PlHPLabel.text = $"<color=green>HP: {CurrentHP}</color>";
     }
     
@@ -32,7 +33,8 @@ public class PlayerCharacter : MonoBehaviour
     
     public void DeathPlayer()
     {
-        _FpsInput.enabled = false;
-        _MouseLook.enabled = false;
+        //todo: решить проблему с хождением после смерти
+        //_FpsInput.enabled = false;
+        //_MouseLook.enabled = false;
     }
 }

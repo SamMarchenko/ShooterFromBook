@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IEnemiesFactory
 {
-   IEnemy Create();
+   void CreateEnemy();
 }
