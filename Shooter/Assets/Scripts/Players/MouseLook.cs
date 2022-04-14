@@ -19,7 +19,7 @@ public class MouseLook
     {
         _playerView = playerView;
     }
-   public void OverviewPlayerEyes()
+    public void OverviewPlayerEyes()
     {
         MouseXMove();
         MouseYMove();

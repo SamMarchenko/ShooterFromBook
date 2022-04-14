@@ -1,0 +1,18 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Enemies.Scripts;
+using FactoryMethod.Factories;
+using UnityEngine;
+
+public class GlobalUpdate : MonoBehaviour
+{
+    
+    private void Update()
+    {
+        for (int i = 0; i < MonoCache.AllUpdate.Count; i++)
+        {
+            MonoCache.AllUpdate[i].Tick();
+        }
+    }
+}

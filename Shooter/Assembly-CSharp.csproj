@@ -55,9 +55,15 @@
      <Compile Include="Assets\Scripts\Weapons\WeaponView.cs" />
      <Compile Include="Assets\Scripts\Factory Method\Interfaces\IWeaponsFactory.cs" />
      <Compile Include="Assets\Scripts\Controllers\DeathScreenController.cs" />
+     <Compile Include="Assets\Scripts\GlobalUpdate\CubeLogic.cs" />
      <Compile Include="Assets\Scripts\Controllers\GameEvent.cs" />
+     <Compile Include="Assets\Scripts\GlobalUpdate\GlobalUpdate.cs" />
+     <Compile Include="Assets\Scripts\Data\Weapon\Weapon.cs" />
+     <Compile Include="Assets\Scripts\GlobalUpdate\MonoCache.cs" />
      <Compile Include="Assets\Scripts\Controllers\UIController.cs" />
+     <Compile Include="Assets\Scripts\Data\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Factory Method\Factories\EnemyFactory.cs" />
+     <Compile Include="Assets\Scripts\Data\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Data\Weapon\WeaponData.cs" />
      <Compile Include="Assets\Scripts\Players\RayShooter.cs" />
      <Compile Include="Assets\Scripts\Weapons\FireBallBehavior.cs" />
@@ -67,6 +73,7 @@
      <Compile Include="Assets\Scripts\Controllers\Messanger.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerCharacter.cs" />
      <Compile Include="Assets\Scripts\Players\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\Weapons\FireBall.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerView.cs" />
      <Compile Include="Assets\Scripts\Players\FPSInput.cs" />
      <Compile Include="Assets\Scripts\Factory Method\Interfaces\IEnemiesFactory.cs" />

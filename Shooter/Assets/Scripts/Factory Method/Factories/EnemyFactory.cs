@@ -19,6 +19,7 @@ namespace FactoryMethod.Factories
         {
             CreateEnemy();
         }
+        
         public void CreateEnemy()
         {
             var enemyView = Instantiate<EnemyView>(_enemyView);
