@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Enemies.Scripts;
 using UnityEngine;
 
@@ -25,10 +23,8 @@ public class ReactiveTarget
         _meshRenderer.material = _enemyView.EnemyData.Materials[2];
     }
     
-    
     public void ReactToHit()
     {
-        
         if (_wanderingAI !=null && _enemyCurrentHp == _enemyView.EnemyData.EnemyMaxHp)
         {
             _meshRenderer.material = mat[1];

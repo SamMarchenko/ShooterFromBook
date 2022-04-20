@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestPlayer
   m_EditorClassIdentifier: 
   PlayerStartHp: 10
-  PlayerStartSpeed: 5
+  PlayerStartSpeed: 20

@@ -45,8 +45,7 @@ public class FPSInput
         
         var movement = new Vector3(_deltaX, 0 , _deltaZ);
         // Ограничение движения по диагонали той же скоростью, что и движение параллельно осям.
-        movement = Vector3.ClampMagnitude(movement, _playerCurrentSpeed); 
-        // Используем значение переменной gravity вместо нуля.
+        movement = Vector3.ClampMagnitude(movement, _playerCurrentSpeed);
         movement.y = _playerCurrentGravity;
         movement *= Time.deltaTime;
         // Преобразуем вектор движения от локальных к глобальным координатам.

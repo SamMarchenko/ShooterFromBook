@@ -1,6 +1,6 @@
-using System;
 using Enemies.Scripts;
 using UnityEngine;
+using Weapons;
 using Random = UnityEngine.Random;
 
 namespace FactoryMethod.Factories
@@ -8,8 +8,9 @@ namespace FactoryMethod.Factories
     public class EnemyFactory : MonoBehaviour, IEnemiesFactory
     {
         [SerializeField] private EnemyView _enemyView;
-        [SerializeField] private GameObject _fireBallPrefab;
+        [SerializeField] private WeaponView _fireBallPrefab;
         [SerializeField] private WeaponData[] _weapons;
+        [SerializeField] private WeaponFactory _weaponFactory;
         private float _minWallXPos = -23f;
         private float _maxWallXPos = 23f;
         private float _minWallZPos = -30f;
@@ -22,11 +23,12 @@ namespace FactoryMethod.Factories
         
         public void CreateEnemy()
         {
+            var wanderingAI = new WanderingAI(_fireBallPrefab, _weapons,_weaponFactory);
             var enemyView = Instantiate<EnemyView>(_enemyView);
-            enemyView.transform.position = SpawnPoint(_minWallXPos, _maxWallXPos, _minWallXPos, _maxWallZPos);
+            enemyView.transform.position = SpawnPoint(_minWallXPos, _maxWallXPos, _minWallZPos, _maxWallZPos);
+            enemyView.Init(wanderingAI);
             float angle = Random.Range(0, 360);
             enemyView.transform.Rotate(0, angle, 0);
-            var wanderingAI = new WanderingAI(_fireBallPrefab, _weapons, enemyView);
             var reactiveTarget = new ReactiveTarget(enemyView, wanderingAI);
         }
         

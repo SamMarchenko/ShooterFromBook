@@ -13,6 +13,7 @@ public class FireBallBehavior
 
     public FireBallBehavior(WeaponView weaponView)
     {
+        _weaponView = weaponView;
         _weaponStartAttackSpeed = weaponView.WeaponData.AttackSpeed;
         _weaponCurrentAttackSpeed = _weaponStartAttackSpeed;
         _weaponStartDamage = weaponView.WeaponData.Damage;

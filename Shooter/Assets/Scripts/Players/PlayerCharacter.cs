@@ -24,7 +24,6 @@ public class PlayerCharacter : MonoBehaviour
     
     public void Hurt(int damage)
     {
-        // Уменьшение здоровья игрока.
         CurrentHP = (CurrentHP - damage) < 0 ? 0 : (CurrentHP - damage);
         PlHPLabel.text = $"<color=green>HP: {CurrentHP}</color>";
         if (CurrentHP != 0) return;

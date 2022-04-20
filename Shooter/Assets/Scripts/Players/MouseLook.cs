@@ -36,8 +36,8 @@ public class MouseLook
         // Фиксируем угол поворота по вертикали, согласно диапазона.
         _rotationX = Mathf.Clamp(_rotationX, MinVert, MaxVert);
         // Сохраняем одинаковый угол поворота вокруг оси Y (вращения по Х не будет).
-        float _rotationY = _playerView.Camera.transform.localEulerAngles.y;
+        float _rotationY = _playerView.MainCamera.transform.localEulerAngles.y;
         // Создаем новый вектор из сохраненных значений поворота.
-        _playerView.Camera.transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0);
+        _playerView.MainCamera.transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0);
     }
 }
