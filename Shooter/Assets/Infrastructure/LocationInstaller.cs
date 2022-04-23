@@ -1,0 +1,24 @@
+using UnityEngine;
+using Zenject;
+
+public class LocationInstaller : MonoInstaller
+{
+    public Transform PlayerSpawnPoint;
+    public GameObject PlayerPrefab;
+    public override void InstallBindings()
+    {
+        BindPlayer();
+    }
+
+    private void BindPlayer()
+    {
+        PlayerView playerView = Container
+            .InstantiatePrefabForComponent<PlayerView>(PlayerPrefab, PlayerSpawnPoint.position, Quaternion.identity, null);
+
+        Container
+            .Bind<PlayerView>()
+            .FromInstance(playerView)
+            .AsSingle()
+            .NonLazy();
+    }
+}
