@@ -20,5 +20,13 @@ public class LocationInstaller : MonoInstaller
             .FromInstance(playerView)
             .AsSingle()
             .NonLazy();
+        Container
+            .BindInterfacesTo<FPSInput>()
+            .AsSingle()
+            .NonLazy();
+        Container
+            .BindInterfacesTo<MouseLook>()
+            .AsSingle()
+            .NonLazy();
     }
 }

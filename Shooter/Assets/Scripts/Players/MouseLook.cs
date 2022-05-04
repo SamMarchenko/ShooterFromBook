@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
-public class MouseLook
+public class MouseLook : ITickable
 {
-    
+    [Inject]
     private PlayerView _playerView;
     
     public float SensivityHor = 9f;
@@ -15,10 +16,7 @@ public class MouseLook
     // Угол поворота по вертикали.
     private float _rotationX = 0;
 
-    public MouseLook(PlayerView playerView)
-    {
-        _playerView = playerView;
-    }
+    
     public void OverviewPlayerEyes()
     {
         MouseXMove();
@@ -40,4 +38,9 @@ public class MouseLook
         // Создаем новый вектор из сохраненных значений поворота.
         _playerView.MainCamera.transform.localEulerAngles = new Vector3(_rotationX, _rotationY, 0);
     }
+
+   public void Tick()
+   {
+       OverviewPlayerEyes();
+   }
 }

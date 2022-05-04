@@ -52,37 +52,37 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Weapons\WeaponView.cs" />
      <Compile Include="Assets\Scripts\Factory Method\Interfaces\IWeaponsFactory.cs" />
      <Compile Include="Assets\Scripts\Controllers\DeathScreenController.cs" />
-     <Compile Include="Assets\Scripts\Controllers\GameEvent.cs" />
-     <Compile Include="Assets\Scripts\GlobalUpdate\GlobalUpdate.cs" />
      <Compile Include="Assets\Scripts\Data\Weapon\Weapon.cs" />
+     <Compile Include="Assets\Infrastructure\BootstrapInstaller.cs" />
      <Compile Include="Assets\Scripts\GlobalUpdate\MonoCache.cs" />
      <Compile Include="Assets\Scripts\Controllers\UIController.cs" />
-     <Compile Include="Assets\Scripts\Data\Enemy\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Factory Method\Factories\EnemyFactory.cs" />
      <Compile Include="Assets\Scripts\Data\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Data\Weapon\WeaponData.cs" />
-     <Compile Include="Assets\Scripts\Players\RayShooter.cs" />
      <Compile Include="Assets\Scripts\Weapons\FireBallBehavior.cs" />
      <Compile Include="Assets\Scripts\Controllers\SceneController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\Messanger.cs" />
+     <Compile Include="Assets\Scripts\Players\FPSInput.cs" />
+     <Compile Include="Assets\Scripts\Factory Method\Factories\WeaponFactory.cs" />
+     <Compile Include="Assets\Scripts\Data\Player\PlayerData.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponView.cs" />
+     <Compile Include="Assets\Scripts\Controllers\GameEvent.cs" />
+     <Compile Include="Assets\Scripts\GlobalUpdate\GlobalUpdate.cs" />
+     <Compile Include="Assets\Infrastructure\LocationInstaller.cs" />
+     <Compile Include="Assets\Scripts\Data\Enemy\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Factory Method\Factories\EnemyFactory.cs" />
+     <Compile Include="Assets\Scripts\Players\RayShooter.cs" />
      <Compile Include="Assets\Scripts\Enemies\ReactiveTarget.cs" />
      <Compile Include="Assets\Scripts\UI\SettingsPopup.cs" />
-     <Compile Include="Assets\Scripts\Controllers\Messanger.cs" />
+     <Compile Include="Assets\TestZenject\TestInstaller.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerCharacter.cs" />
      <Compile Include="Assets\Scripts\Players\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Players\PlayerView.cs" />
-     <Compile Include="Assets\Scripts\Players\FPSInput.cs" />
      <Compile Include="Assets\Scripts\Factory Method\Interfaces\IEnemiesFactory.cs" />
      <Compile Include="Assets\Scripts\Enemies\WanderingAI.cs" />
-     <Compile Include="Assets\Scripts\Factory Method\Factories\WeaponFactory.cs" />
      <Compile Include="Assets\Scripts\Data\Enemy\EnemyData.cs" />
-     <Compile Include="Assets\Scripts\Data\Player\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyView.cs" />
-     <Compile Include="Assets\TestZenject\TestInstaller.cs" />
-     <Compile Include="Assets\Infrastructure\BootstrapInstaller.cs" />
-     <Compile Include="Assets\Infrastructure\LocationInstaller.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -305,20 +305,20 @@
  <Reference Include="UnityEditor.UnityConnectModule">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
- <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
- <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+ <Reference Include="Zenject-usage">
+ <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
  </Reference>
  <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
  <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
  </Reference>
- <Reference Include="Zenject-usage">
- <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
- </Reference>
- <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
- <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+ <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+ <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
  </Reference>
  <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
  <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+ </Reference>
+ <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+ <HintPath>/Applications/RemoteApps/Shooter/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.4f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -679,6 +679,14 @@
       <Project>{e7d64b2e-b0d7-f257-7fc2-6054101cb845}</Project>
       <Name>LeanTouch</Name>
     </ProjectReference>
+    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
+      <Project>{7995e1e8-1f92-f567-15b1-e20c2bbec29a}</Project>
+      <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{d8951b62-fc5b-0a11-3a12-a46b065ba2e7}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{5b4443e6-6c3a-ddc3-de83-98196bb6f370}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
@@ -703,6 +711,10 @@
       <Project>{ce7c96b4-bc26-12f5-05dd-400fbab3caa1}</Project>
       <Name>LeanCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{7d713b7c-a8be-5143-0291-3610ae43519a}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{7f347968-c497-94f8-125c-ca989feb0fbd}</Project>
       <Name>UnityEditor.UI</Name>
@@ -715,21 +727,9 @@
       <Project>{2b92f0d0-9ee1-c43a-3cfa-e888de82c075}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{7d713b7c-a8be-5143-0291-3610ae43519a}</Project>
-      <Name>Zenject-Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
       <Project>{32056252-64f2-3c68-bcd8-d910c8809910}</Project>
       <Name>Zenject-PoolMonitor-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{7995e1e8-1f92-f567-15b1-e20c2bbec29a}</Project>
-      <Name>Zenject-ReflectionBaking-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject.csproj">
-      <Project>{d8951b62-fc5b-0a11-3a12-a46b065ba2e7}</Project>
-      <Name>Zenject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

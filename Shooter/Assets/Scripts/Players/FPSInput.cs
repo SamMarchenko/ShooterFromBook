@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Enemies.Scripts;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 [RequireComponent(typeof(CharacterController))]
 [AddComponentMenu("Control Script/FPS Input")]
 
-public class FPSInput
-{
+public class FPSInput : IInitializable, ITickable
+{   
     private PlayerView _playerView;
     private float _deltaX;
     private float _deltaZ;
@@ -16,18 +17,10 @@ public class FPSInput
     private float _playerCurrentSpeed;
     private float _playerCurrentGravity;
 
-    public FPSInput (PlayerView playerView)
+    public FPSInput(PlayerView playerView)
     {
         _playerView = playerView;
-        Init();
     }
-    private void Init()
-    {
-        _playerStartSpeed = _playerView.PlayerData.PlayerStartSpeed;
-        _playerCurrentSpeed = _playerStartSpeed;
-        _playerCurrentGravity = _playerView.PlayerData.PlayerStartGravity;
-    }
-    
     void Awake()
     {
         Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
@@ -56,5 +49,17 @@ public class FPSInput
     private void OnSpeedChanged(float value)
     {
         _playerCurrentSpeed = _playerStartSpeed * value;
+    }
+
+    public void Initialize()
+    {
+        _playerStartSpeed = _playerView.PlayerData.PlayerStartSpeed;
+        _playerCurrentSpeed = _playerStartSpeed;
+        _playerCurrentGravity = _playerView.PlayerData.PlayerStartGravity;
+    }
+
+    public void Tick()
+    {
+        PlayerMove();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerView : MonoCache
+public class PlayerView : MonoBehaviour
 {
     public Transform Transform => transform;
 
@@ -14,24 +14,12 @@ public class PlayerView : MonoCache
     [SerializeField] private GameObject _mainCamera;
     public GameObject MainCamera => _mainCamera;
     private Camera _camera;
-    private FPSInput _fpsInput;
-    private MouseLook _mouseLook;
-    private RayShooter _rayShooter;
 
     private void Awake()
     {
-        _fpsInput = new FPSInput(this);
-        _mouseLook = new MouseLook(this);
-        _rayShooter = new RayShooter(this);
         _camera = _mainCamera.GetComponent<Camera>();
     }
-
-    public override void OnTick()
-    {
-        _fpsInput.PlayerMove();
-        _mouseLook.OverviewPlayerEyes();
-        _rayShooter.PlayerSoot();
-    }
+    
     void OnGUI()
     {
         int size = 12;
