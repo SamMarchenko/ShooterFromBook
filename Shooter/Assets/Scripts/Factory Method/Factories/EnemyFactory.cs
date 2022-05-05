@@ -11,10 +11,10 @@ namespace FactoryMethod.Factories
         [SerializeField] private WeaponView _fireBallPrefab;
         [SerializeField] private WeaponData[] _weapons;
         [SerializeField] private WeaponFactory _weaponFactory;
-        private float _minWallXPos = -23f;
-        private float _maxWallXPos = 23f;
-        private float _minWallZPos = -30f;
-        private float _maxWallZPos = 15f;
+        private float _minWallXPos = -20f;
+        private float _maxWallXPos = 20f;
+        private float _minWallZPos = -20f;
+        private float _maxWallZPos = 20f;
 
         private void Start()
         {
@@ -36,7 +36,7 @@ namespace FactoryMethod.Factories
         {
             float SpawnX = Random.Range(minWallXPos,maxWallXPos);
             float SpawnZ = Random.Range(minWallZPos, maxWallZPos); 
-            return new Vector3(SpawnX, 4, SpawnZ);
+            return new Vector3(SpawnX, 1, SpawnZ);
         }
         
     }
